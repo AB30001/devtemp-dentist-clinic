@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f3f8f9;
+  --ink: #14323a;
+  --muted: #5d747c;
+  --accent: #1a8a96;
+  --accent-dark: #146f79;
+  --line: #c9dce0;
+  --card: #ffffff;
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  background:
+    radial-gradient(ellipse 70% 45% at 0% 0%, #d9eef1 0%, transparent 55%),
+    linear-gradient(180deg, #f7fbfc 0%, var(--bg) 100%);
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+.shell { width: min(1100px, calc(100% - 2rem)); margin-inline: auto; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 2.75rem; padding: 0.65rem 1.2rem; border-radius: 8px;
+  font-weight: 700; border: 1px solid transparent; cursor: pointer;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-dark); }
+.btn-ghost { border-color: #b7cdd2; background: #fff; }
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  border-bottom: 1px solid #d5e4e7;
+}
+.site-header__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; min-height: 4rem;
+}
+.logo {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em;
+}
+.nav { display: flex; gap: 1.1rem; flex-wrap: wrap; font-weight: 600; font-size: 0.95rem; }
+.hero {
+  display: grid; gap: 2rem; padding: 4rem 0 3rem;
+  animation: rise 700ms ease both;
+}
+@media (min-width: 900px) {
+  .hero { grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+}
+.brand {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  line-height: 0.98; letter-spacing: -0.03em; margin: 0 0 1rem;
+}
+.lead { color: var(--muted); font-size: 1.1rem; max-width: 38ch; margin: 0 0 1.5rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.hero-panel {
+  min-height: 280px; border-radius: 16px; border: 1px solid #cfe0e4;
+  background:
+    linear-gradient(160deg, #dff3f5 0%, #f7fbfc 45%, #c5e4e8 100%);
+  position: relative; overflow: hidden;
+}
+.hero-panel::after {
+  content: ""; position: absolute; inset: 18% 14%;
+  border-radius: 12px; background: #fff; border: 1px solid #d5e4e7;
+  box-shadow: 0 20px 40px rgba(20, 50, 58, 0.08);
+}
+.trust {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem; padding: 0.5rem 0 2.5rem;
+}
+.trust div {
+  background: #fff; border: 1px solid #d5e4e7; border-radius: 10px; padding: 1rem;
+}
+.trust strong { display: block; font-size: 1.35rem; }
+.trust span { color: var(--muted); font-size: 0.9rem; }
+.section { padding: 2.5rem 0 3rem; }
+.section h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2.1rem); letter-spacing: -0.02em; margin: 0 0 0.4rem;
+}
+.section p.sub { color: var(--muted); margin: 0 0 1.5rem; }
+.grid-3 {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;
+}
+.card {
+  background: #fff; border: 1px solid #d5e4e7; border-radius: 12px; padding: 1.15rem;
+}
+.card h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+.card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.split {
+  display: grid; gap: 1.5rem;
+}
+@media (min-width: 800px) { .split { grid-template-columns: 1fr 1fr; align-items: center; } }
+.quote {
+  background: #fff; border-left: 3px solid var(--accent);
+  padding: 1rem 1.1rem; margin: 0 0 0.8rem; color: var(--muted);
+}
+.cta-band {
+  margin: 1rem 0 3rem; padding: 2rem; border-radius: 14px;
+  background: #14323a; color: #f3f8f9;
+}
+.cta-band h2 { color: #fff; margin-top: 0; }
+.cta-band p { color: #b7cdd2; }
+.footer {
+  border-top: 1px solid #d5e4e7; padding: 2rem 0; color: var(--muted); font-size: 0.95rem;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 700px) {
+  .nav { display: none; }
+}
